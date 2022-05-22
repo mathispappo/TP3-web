@@ -11,14 +11,22 @@ function ajouter(){
     const taskTd = document.createElement('td')
     const dateTd = document.createElement('td')
     const categorieTd = document.createElement('td')
+    const ajoutéeleTd = document.createElement('td')
+    const duree = document.createElement('td')
+    //const terminele = document.createElement("BUTTON")
     taskTd.textContent = document.newTaskF.tache.value
     dateTd.textContent = document.newTaskF.date.value
     categorieTd.textContent = document.newTaskF.categorie.value
+    ajoutéeleTd.textContent = debut_fin_tache()
+    duree.textContent = setTimeout(() => {
+      incrementerDuree
+    }, timeout)
+    //terminele.textContent = document.newTaskF.appendChild(terminele)
     
     //const selectEntree = document.getElementById("entreeId");
     //const valeurselectionnee = selectEntree.options[selectEntree.selectedIndex].value;
     //const textselectionne = selectEntree.options[selectEntree.selectedIndex].text;
-   //Vérification de la récupération
+    //Vérification de la récupération
     console.log(taskTd.textContent)
     console.log(dateTd.textContent)
     console.log(categorieTd.textContent)
@@ -31,7 +39,7 @@ function ajouter(){
         }
     
     //const table = document.querySelector('table')
-    newItem.append(taskTd, dateTd, categorieTd)
+    newItem.append(taskTd, dateTd, categorieTd, ajoutéeleTd, duree)
 
      /* le premier élément dans le document qui contient la classe "datatable" est retourné*/
     const table = document.querySelector('.datatable tbody')
@@ -47,4 +55,24 @@ function supprimer() {
           tbody.removeChild(tbody.firstChild)
         }
     
+}
+
+function debut_fin_tache(){
+  var d = new Date();
+  var date;
+
+  date = d.getDate() + "-" + d.getMonth() + "-" + d.getFullYear() + " à " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+  
+  return date;
+
+}
+
+function incrementerDuree() {
+  let durees = document.getElementsByClassName("duree")
+  if (durees.length != 0) {
+    Array.prototype.forEach.call(durees, function(dureeElement) {
+      let valeur = parseInt(dureeElement.textContent) 
+      dureeElement.textContent = valeur + 1
+  });
+}
 }
