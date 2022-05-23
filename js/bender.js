@@ -1,6 +1,6 @@
    
 function create_robot(){
-    let bender = document.createElement('img'); 
+    let ender = document.createElement('img'); 
     bender.src = "../img/Bender.png"; 
     bender.style.height = "100px"; 
     bender.style.position = "absolute";
@@ -12,29 +12,54 @@ function create_robot(){
     }
 
 function move_bot_right(){
-    let bender = document.createElement('img');
-    document.getElementsById('img');  
+    const bender = document.getElementById('bender');  
     bender.style.left = "100px";
 }    
 
 function move_bot_left(){
-    let bender = document.createElement('img');
-    document.getElementsById('img'); 
-    bender.style.right = "100px";
+    const bender = document.getElementById('bender'); 
+    bender.style.left = "-100px";
 }
 
 function move_bot_down(){
-    let bender = document.createElement('img');
-    document.getElementsById('img'); 
-    bender.style.up = "100px";
+    const bender = document.getElementById('bender'); 
+    bender.style.top = "100px";
 }
 
 function move_bot_up(){
-    let bender = document.createElement('img');
-    document.getElementsById('img'); 
-    bender.style.down = "100px";
+    const bender = document.getElementById('bender'); 
+    bender.style.top = "-100px";
 }
 
 function activate_bot(){
-    "alert('BOT GO !)";
+    move_bot_down()
+    move_bot_up()
+    move_bot_left()
+    move_bot_right()
+    window.alert("fbbd")
+}
+
+function get_bot_action(query) {
+    switch (query) {
+        case "BOT_CREATE" :
+            create_robot()
+            break
+        case "BOT_RIGHT" :
+            move_bot_right()
+            break
+        case "BOT_LEFT" :
+            move_bot_left()
+            break
+        case "BOT_UP " :
+            move_bot_up()
+            break
+        case "BOT_DOWN" :
+            move_bot_down()
+            break
+        case "BOT_RUN" :
+            activate_bot()
+            break;
+        default :
+            break
+    }
 }
