@@ -89,5 +89,17 @@ function incrementerDuree() {
 
 setInterval(incrementerDuree, 1000)
 
+let tache = {
+  taskTd: document.newTaskF.tache.value,
+  dateTd: document.newTaskF.date.value,
+  categorieTd: document.newTaskF.categorie.value
+}
 
-
+[Symbol.iterator] = function*(){
+  yield this.taskTd;
+  yield this.dateTd;
+  yield this.categorieTd;
+}
+for (let i of tache){
+  console.log(i)
+}
