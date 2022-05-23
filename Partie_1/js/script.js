@@ -89,17 +89,40 @@ function incrementerDuree() {
 
 setInterval(incrementerDuree, 1000)
 
-let tache = {
-  taskTd: document.newTaskF.tache.value,
-  dateTd: document.newTaskF.date.value,
-  categorieTd: document.newTaskF.categorie.value
-}
+document.addEventListener("DOMContentLoaded", () => {
+  let tache = {
+    taskTd: document.newTaskF.tache.value,
+    dateTd: document.newTaskF.date.value,
+    categorieTd: document.newTaskF.categorie.value,
+  
+   
+    
+    [Symbol.iterator](){
+      let tableau=Object.values(this);
+      let prop = 0;
+      
+      return{
+        next(){
+          if (prop < tableau.length) {
+            return{
+              value: tableau[prop++],
+              done: false,
+            };
+          }else{
+            return{
+              value: undefined,
+              done: true,
+            };
+          }
+  
+        }
+      };
+    }
+  }
+  
+  for (let T of tache){
+    console.log(T)
+  }
+  
+})
 
-[Symbol.iterator] = function*(){
-  yield this.taskTd;
-  yield this.dateTd;
-  yield this.categorieTd;
-}
-for (let i of tache){
-  console.log(i)
-}
