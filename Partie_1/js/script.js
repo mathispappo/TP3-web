@@ -51,16 +51,10 @@ function ajouter(){
     //const table = document.querySelector('table')
     newItem.append(taskTd, dateTd, categorieTd, ajoutéeleTd, dureeEl, terminerEl, btn)
 
-     /* le premier élément dans le document qui contient la classe "datatable" est retourné*/
+    /* le premier élément dans le document qui contient la classe "datatable" est retourné*/
     const table = document.querySelector('.datatable tbody')
     /*  Ex2)3)vi) */
     table.appendChild(newItem)
-
-
-    const tache = tacheSaisie()
-    pushTache(tache)
-
-    get_bot_action(tache.nom)
 
 }
 
@@ -97,51 +91,3 @@ setInterval(incrementerDuree, 1000)
 
 
 
-
-//collection taches
-let mesTaches = []
-
-const btn = document.getElementById("submit")
-const table = document.querySelector("table")
-let tbody = table.querySelector("tbody")
-class Tache {
-
-  nom;
-  date;
-  categorie;
-
-  constructor(nom, date, categorie) {
-      this.nom = nom;
-      this.date = date;
-      this.categorie = categorie;
-  }
-}
-
-function pushTache(tache) {
-  mesTaches.push(tache)
-}
-
-function tacheSaisie() {
-  const choix = document.getElementsByName("tache")
-  const tache = document.getElementsByName("date")
-  const date = document.getElementsByName("categorie")
-
-  return new Tache(tache.value, date.value, choix.value)
-
-  /**return {
-      choix : choix.value,
-      tache : tache.value,
-      date : date.value
-  }*/
-}
-
-
-fetchJson().then(r => loadTasks(r))
-
-async function fetchJson() {
-  const json =  await fetch('../js/task.json').then(response => j = response.json())
-  console.log(json, typeof  json)
-  return json;
-}
-
-document.getElementById("test").addEventListener('click', activate_bot)
