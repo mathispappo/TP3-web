@@ -1,6 +1,6 @@
    
 function create_robot(){
-    let ender = document.createElement('img'); 
+    let bender = document.createElement('img'); 
     bender.src = "../img/Bender.png"; 
     bender.style.height = "100px"; 
     bender.style.position = "absolute";
@@ -40,23 +40,23 @@ function activate_bot(){
 }
 
 function get_bot_action(query) {
-    switch (query) {
-        case "BOT_CREATE" :
+    switch (query.substring(4)) {
+        case "CREATE" :
             create_robot()
             break
-        case "BOT_RIGHT" :
+        case "RIGHT" :
             move_bot_right()
             break
-        case "BOT_LEFT" :
+        case "LEFT" :
             move_bot_left()
             break
-        case "BOT_UP " :
+        case "UP" :
             move_bot_up()
             break
-        case "BOT_DOWN" :
+        case "DOWN" :
             move_bot_down()
             break
-        case "BOT_RUN" :
+        case "RUN" :
             activate_bot()
             break;
         default :
