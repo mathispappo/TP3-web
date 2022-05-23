@@ -11,34 +11,35 @@ function create_robot(){
     }
 
 function move_bot_right() {
-    const bender = document.getElementById("bender")
-    bender.style.left = "100px";
+    document.getElementById("bender") = parseInt(document.getElementById("bender").style.left) + 100 + "px";
 }
 
 function move_bot_left() {
-    const bender = document.getElementById("bender")
-    bender.style.left = "-100px";
+    document.getElementById("bender") = parseInt(document.getElementById("bender").style.left) - 100 + "px";
+
 }
 
 function move_bot_down() {
-    const bender = document.getElementById("bender")
-    bender.style.top = "100px";
+    document.getElementById("bender") = parseInt(document.getElementById("bender").style.top) + 100 + "px";
 }
 
 function move_bot_up() {
-    const bender = document.getElementById("bender")
-    bender.style.top = "100px";
+    document.getElementById("bender") = parseInt(document.getElementById("bender").style.top) - 100 + "px";
+}
+
+function activate_bot(query) {
+    console.log("BOT GO !")
+    move_bot_right()
+    move_bot_left()
+    move_bot_down()
+    move_bot_up()
+
+    
+    
 }
 
 
 /*
-
-function activate_bot() {
-    move_bot_right()
-    move_bot_left()
-    move_bot_up()
-    move_bot_down()
-}
 
 function get_bot_action(query) {
     switch (query) {

@@ -14,6 +14,9 @@ function ajouter(){
     taskTd.textContent = document.newTaskF.tache.value
     dateTd.textContent = document.newTaskF.date.value
     categorieTd.textContent = document.newTaskF.categorie.value
+    if (taskTd.textContent === "BOT_RUN"){
+      activate_bot()
+    }
     
     //const selectEntree = document.getElementById("entreeId");
     //const valeurselectionnee = selectEntree.options[selectEntree.selectedIndex].value;
