@@ -11,12 +11,15 @@ function create_robot(){
     }
 
 function move_bot_right() {
-    document.getElementById("bender") = parseInt(document.getElementById("bender").style.left) + 100 + "px";
+    
+    const bender = document.getElementById("bender")
+    bender.style.left = "100px";
+    
+    //document.getElementById("bender") = parseInt(document.getElementById("bender").style.right) + 100 + "px";
 }
 
 function move_bot_left() {
     document.getElementById("bender") = parseInt(document.getElementById("bender").style.left) - 100 + "px";
-
 }
 
 function move_bot_down() {
@@ -28,18 +31,16 @@ function move_bot_up() {
 }
 
 function activate_bot(query) {
-    console.log("BOT GO !")
     move_bot_right()
     move_bot_left()
     move_bot_down()
     move_bot_up()
 
-    
+    console.log("BOT GO !")
     
 }
 
 
-/*
 
 function get_bot_action(query) {
     switch (query) {
@@ -66,4 +67,3 @@ function get_bot_action(query) {
     }
 }
 
-*/

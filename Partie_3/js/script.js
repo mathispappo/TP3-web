@@ -2,6 +2,10 @@ var newCommandForm = document.forms.newTaskF;
 
 
 function ajouter(){
+
+  const tache = tacheSaisie()
+  pushTache(tache)
+
     //Vérifier que la récupération se fait bien !)
     console.log(document.forms.newTaskF.tache.value);
     console.log(document.forms.newTaskF.date.value);
@@ -48,3 +52,75 @@ function supprimer() {
         }
     
 }
+
+function tacheSaisie() {
+  const tache = document.getElementsByTagName("tache")
+  const date = document.getElementsByTagName("date")
+  const categorie = document.getElementsByTagName("categorie")
+
+  return new Tache(tache.value, date.value, categorie.value)
+
+  /**return {
+    choix : choix.value,
+    tache : tache.value,
+    date : date.value,
+    detail : detail.value
+  }*/
+
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  var maNouvelleTache = {
+    taskTd: document.newTaskF.tache.value,
+    dateTd: document.newTaskF.date.value,
+    categorieTd: document.newTaskF.categorie.value,
+  
+    [Symbol.iterator](){
+      let tableau=Object.values(this);
+      let prop = 0;
+      
+      return{
+        next(){
+          if (prop < tableau.length) {
+            return{
+              value: tableau[prop++],
+              done: false,
+            };
+          }else{
+            return{
+              value: undefined,
+              done: true,
+            };
+          }
+  
+        }
+      };
+    }
+  }
+  
+  for (let T of maNouvelleTache){
+    console.log(T)
+  }
+  
+})
+
+class Tache {
+
+  nom;
+  date;
+  categorie;
+
+  constructor(nom, date, categorie) {
+      this.nom = nom;
+      this.date = date;
+      this.categorie = categorie;
+  }
+}
+
+let mesTaches = []
+
+function pushTache(tache) {
+  mesTaches.push(tache)
+}
+
+// Il manque la 7)b et 7)c

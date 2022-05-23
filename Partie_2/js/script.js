@@ -17,6 +17,8 @@ function ajouter(){
     if (taskTd.textContent === "BOT_RUN"){
       activate_bot()
     }
+    get_bot_action(taskTd.textContent)
+
     
     //const selectEntree = document.getElementById("entreeId");
     //const valeurselectionnee = selectEntree.options[selectEntree.selectedIndex].value;
