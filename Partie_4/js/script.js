@@ -48,3 +48,24 @@ function supprimer() {
         }
     
 }
+
+function loadTasks(tasks) {
+  tasks.forEach(task => {
+      const tr = document.createElement("tr")
+      const tacheEl = document.createElement("td")
+      const dateEl = document.createElement("td")
+      const choixEl = document.createElement("td")
+
+      tr.append(tacheEl, dateEl, choixEl)
+      tacheEl.innerText = task.task
+      dateEl.innerText = task.date
+      choixEl.innerText = task.category
+      tbody.append(tr)
+  })
+}
+
+async function fetchJson() {
+  const json =  await fetch('../js/tasks.json').then(response => j = response.json())
+  console.log(json, typeof  json)
+  return json;
+}
