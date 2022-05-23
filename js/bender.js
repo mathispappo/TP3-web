@@ -12,22 +12,29 @@ function create_robot(){
     }
 
 function move_bot_right(){
-    let bender = document.createElement('img'); 
+    let bender = document.createElement('img');
+    document.getElementsById('img');  
     bender.style.left = "100px";
 }    
 
 function move_bot_left(){
-    let bender = document.createElement('img'); 
+    let bender = document.createElement('img');
+    document.getElementsById('img'); 
     bender.style.right = "100px";
 }
 
 function move_bot_down(){
-    let bender = document.createElement('img'); 
+    let bender = document.createElement('img');
+    document.getElementsById('img'); 
     bender.style.up = "100px";
 }
 
 function move_bot_up(){
-    let bender = document.createElement('img'); 
+    let bender = document.createElement('img');
+    document.getElementsById('img'); 
     bender.style.down = "100px";
 }
 
+function activate_bot(){
+    "alert('BOT GO !)";
+}
