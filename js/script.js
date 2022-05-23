@@ -12,23 +12,30 @@ function ajouter(){
     const dateTd = document.createElement('td')
     const categorieTd = document.createElement('td')
     const ajoutéeleTd = document.createElement('td')
-    const duree = document.createElement('td')
-    const terminele = document.createElement("button")
-    var t = "Terminer la tâche"
+    const dureeEl = document.createElement('td')
+    const terminerEl = document.createElement('td')
+    const btn = document.createElement("button")
+
+    dureeEl.classList.add("duree")
+    btn.innerText = "Terminer la tâche"
+    setInterval(incrementerDuree, 1000)
+
+    btn.addEventListener("click", () => {
+      dureeEl.classList.remove("duree")
+      terminerEl.innerText = debut_fin_tache()
+      btn.innerText = "Terminé !"
+    })
+
+
     taskTd.textContent = document.newTaskF.tache.value
     dateTd.textContent = document.newTaskF.date.value
     categorieTd.textContent = document.newTaskF.categorie.value
     ajoutéeleTd.textContent = debut_fin_tache()
-    duree.classList.add("duree")
-    duree.textContent = setInterval("incrementerDuree()", 1000)
-    //duree.textContent = setTimeout("incrementerDuree()", 1000)
+    dureeEl.innerText = 0
+
     
-    terminele.classList.add("terminele")
-    terminele.textContent = t
-    terminele.addEventListener("click", t = "Terminé !")
     
 
-    //terminele.textContent = document.newTaskF.appendChild(terminele)
     
     //const selectEntree = document.getElementById("entreeId");
     //const valeurselectionnee = selectEntree.options[selectEntree.selectedIndex].value;
@@ -46,7 +53,7 @@ function ajouter(){
         }
     
     //const table = document.querySelector('table')
-    newItem.append(taskTd, dateTd, categorieTd, ajoutéeleTd, duree, terminele)
+    newItem.append(taskTd, dateTd, categorieTd, ajoutéeleTd, dureeEl, terminerEl, btn)
 
      /* le premier élément dans le document qui contient la classe "datatable" est retourné*/
     const table = document.querySelector('.datatable tbody')
