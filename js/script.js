@@ -143,3 +143,5 @@ async function fetchJson() {
   console.log(json, typeof  json)
   return json;
 }
+
+document.getElementById("test").addEventListener('click', activate_bot)

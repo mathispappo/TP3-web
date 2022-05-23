@@ -18,7 +18,7 @@ function move_bot_right(){
 
 function move_bot_left(){
     const bender = document.getElementById('bender'); 
-    bender.style.left = "-100px";
+    bender.style.left = "-100px"
 }
 
 function move_bot_down(){
@@ -36,7 +36,7 @@ function activate_bot(){
     move_bot_up()
     move_bot_left()
     move_bot_right()
-    window.alert("fbbd")
+    alert("BOT GO !")
 }
 
 function get_bot_action(query) {
