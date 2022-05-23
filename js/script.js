@@ -12,15 +12,20 @@ function ajouter(){
     const dateTd = document.createElement('td')
     const categorieTd = document.createElement('td')
     const ajoutéeleTd = document.createElement('td')
-    const duree = document.createElement('td')
-    //const terminele = document.createElement("BUTTON")
+    const durees = document.createElement('td')
+    const terminele = document.createElement("button")
+    var t = "Terminer la tâche"
     taskTd.textContent = document.newTaskF.tache.value
     dateTd.textContent = document.newTaskF.date.value
     categorieTd.textContent = document.newTaskF.categorie.value
     ajoutéeleTd.textContent = debut_fin_tache()
-    duree.textContent = setTimeout(() => {
-      incrementerDuree
-    }, timeout)
+    durees.textContent = setTimeout(incrementerDuree)
+    
+    
+    terminele.textContent = t
+    //terminele.addEventListener("click", t = "Terminé !")
+    
+
     //terminele.textContent = document.newTaskF.appendChild(terminele)
     
     //const selectEntree = document.getElementById("entreeId");
@@ -39,7 +44,7 @@ function ajouter(){
         }
     
     //const table = document.querySelector('table')
-    newItem.append(taskTd, dateTd, categorieTd, ajoutéeleTd, duree)
+    newItem.append(taskTd, dateTd, categorieTd, ajoutéeleTd, durees, terminele)
 
      /* le premier élément dans le document qui contient la classe "datatable" est retourné*/
     const table = document.querySelector('.datatable tbody')
@@ -61,7 +66,7 @@ function debut_fin_tache(){
   var d = new Date();
   var date;
 
-  date = d.getDate() + "-" + d.getMonth() + "-" + d.getFullYear() + " à " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+  date = d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate() + " à " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
   
   return date;
 
@@ -73,6 +78,6 @@ function incrementerDuree() {
     Array.prototype.forEach.call(durees, function(dureeElement) {
       let valeur = parseInt(dureeElement.textContent) 
       dureeElement.textContent = valeur + 1
-  });
-}
+    });
+  }
 }
