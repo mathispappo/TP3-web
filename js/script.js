@@ -60,6 +60,12 @@ function ajouter(){
     /*  Ex2)3)vi) */
     table.appendChild(newItem)
 
+
+    const tache = tacheSaisie()
+    pushTache(tache)
+
+    get_bot_action(tache.nom)
+
 }
 
  //supprimer toutes les lignes du tableau
