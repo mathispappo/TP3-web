@@ -1,6 +1,6 @@
 function create_robot() {
     let bender = document.createElement('img');
-    bender.src = "../img/bender.jpg";
+    bender.src = "../img/Bender.png";
     bender.style.height = "100px";
     bender.style.position = "absolute";
     bender.style.top = "0px";
@@ -9,6 +9,8 @@ function create_robot() {
     bender.id = "bender";
     document.body.append(bender);
 }
+
+
 /*
 function move_bot_right() {
     const bender = document.getElementById("bender")
