@@ -12,15 +12,16 @@ function ajouter(){
     const dateTd = document.createElement('td')
     const categorieTd = document.createElement('td')
     const ajoutéeleTd = document.createElement('td')
-    const durees = document.createElement('td')
+    const duree = document.createElement('td')
     const terminele = document.createElement("button")
     var t = "Terminer la tâche"
     taskTd.textContent = document.newTaskF.tache.value
     dateTd.textContent = document.newTaskF.date.value
     categorieTd.textContent = document.newTaskF.categorie.value
     ajoutéeleTd.textContent = debut_fin_tache()
-    durees.textContent = setTimeout(incrementerDuree)
-    
+    duree.classList.add("duree")
+    duree.textContent = setInterval("incrementerDuree()", 1000)
+    //duree.textContent = setTimeout("incrementerDuree()", 1000)
     
     terminele.textContent = t
     //terminele.addEventListener("click", t = "Terminé !")
@@ -44,7 +45,7 @@ function ajouter(){
         }
     
     //const table = document.querySelector('table')
-    newItem.append(taskTd, dateTd, categorieTd, ajoutéeleTd, durees, terminele)
+    newItem.append(taskTd, dateTd, categorieTd, ajoutéeleTd, duree, terminele)
 
      /* le premier élément dans le document qui contient la classe "datatable" est retourné*/
     const table = document.querySelector('.datatable tbody')
@@ -81,3 +82,4 @@ function incrementerDuree() {
     });
   }
 }
+
