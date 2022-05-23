@@ -23,8 +23,9 @@ function ajouter(){
     duree.textContent = setInterval("incrementerDuree()", 1000)
     //duree.textContent = setTimeout("incrementerDuree()", 1000)
     
+    terminele.classList.add("terminele")
     terminele.textContent = t
-    //terminele.addEventListener("click", t = "Terminé !")
+    terminele.addEventListener("click", t = "Terminé !")
     
 
     //terminele.textContent = document.newTaskF.appendChild(terminele)
