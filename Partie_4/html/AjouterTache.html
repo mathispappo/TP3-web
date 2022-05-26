@@ -5,7 +5,7 @@
         <title>Ajouter une tâche</title>
         <link rel= "stylesheet" href= "../styles/Styles.css"> 
         <link rel= "stylesheet" href= "../styles/menu_style.css">
-        <script type="text/javascript" src="../js/script.js"></script>
+        <link rel= "json" href= "../js/tasks.json">
      
     </head>
        
@@ -62,11 +62,30 @@
         
     </body>
     <!--
-        <script type="text/javascript" src="tasks.json"></script>
-    -->
-    <script>
+        
+
         var fromJSON = localStorage.getItem("tasks.json");
+        console.log(fromJSON)
         var obj = JSON.parse(fromJSON)
+        var test = JSON.parse("tasks.json")
+        console.log(fromJSON)
+        console.log(obj)
         console.log(JSON.stringify("tasks.json"))
+        
+
+        
+        let fichier = fs.readFileSync('tasks.json')
+        let personne = JSON.parse(fichier)
+        console.log(personne)
+        
+        const testeee = require("");
+        fetch('./tasks.json')
+    -->
+    <script src="../js/tasks.json"></script>
+    <script>
+        fetch("../js/tasks.json")
+        .then(res=> res.json())
+        .then(data=> console.log(JSON.stringify(data)))
+
     </script>
 </html>
