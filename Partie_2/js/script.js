@@ -38,7 +38,10 @@ function ajouter(){
     const table = document.querySelector('.datatable tbody')
     /*  Ex2)3)vi) */
     table.appendChild(newItem)
-    activate_bot()
+    
+    if (taskTd.textContent === "BOT_RUN") {
+      activate_bot()
+    }
     
     //get_bot_action(taskTd.textContent)
 }
