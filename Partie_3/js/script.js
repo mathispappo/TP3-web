@@ -1,10 +1,22 @@
 var newCommandForm = document.forms.newTaskF; 
 
 
-function ajouter(){
+async function ajouter(){
 
   const tache = tacheSaisie()
   pushTache(tache)
+
+  const table = document.querySelector('.datatable')
+  console.log(table)
+  mesTaches.forEach((tache) => {
+    var bol = true
+    console.log(table.childElementCount)
+    for( i = 1; i < table.childNodes.length ; i++){
+        if(table.childNodes[i].childNodes[0].textContent === tache.nom){
+            bol = false
+        }
+    }
+
 
     //Vérifier que la récupération se fait bien !)
     console.log(document.forms.newTaskF.tache.value);
@@ -30,9 +42,9 @@ function ajouter(){
     if (!document.newTaskF.tache.checkValidity() ||
           !document.newTaskF.date.checkValidity() ||
           !document.newTaskF.categorie.checkValidity()
-         ) {
-               return
-        }
+    ) {
+      return
+    }
     
     //const table = document.querySelector('table')
     newItem.append(taskTd, dateTd, categorieTd)
@@ -41,7 +53,7 @@ function ajouter(){
     const table = document.querySelector('.datatable tbody')
     /*  Ex2)3)vi) */
     table.appendChild(newItem)
-
+  })
 }
 
  //supprimer toutes les lignes du tableau
@@ -54,19 +66,17 @@ function supprimer() {
 }
 
 function tacheSaisie() {
-  const tache = document.getElementsByTagName("tache")
-  const date = document.getElementsByTagName("date")
-  const categorie = document.getElementsByTagName("categorie")
+  const form = document.forms[0]
+  const nomSaisi = form.elements[0].value
+  const dateSaisie = form.elements[1].value
+  const categorieSaisie = form.elements[2].value
+  /*
+  return {nomSaisi, dateSaisie, categorieSaisie}
+  */
 
-  return new Tache(tache.value, date.value, categorie.value)
-
-  /**return {
-    choix : choix.value,
-    tache : tache.value,
-    date : date.value,
-    detail : detail.value
-  }*/
-
+  const nouvelletache = new Tache(nomSaisi,dateSaisie,categorieSaisie);
+  console.log(nouvelletache)
+  return nouvelletache
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -76,7 +86,8 @@ document.addEventListener("DOMContentLoaded", () => {
     categorieTd: document.newTaskF.categorie.value,
   
     [Symbol.iterator](){
-      let tableau=Object.values(this);
+      console.log(this.taskTd)
+      let tableau = Object.values(this);
       let prop = 0;
       
       return{
@@ -105,11 +116,6 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 class Tache {
-
-  nom;
-  date;
-  categorie;
-
   constructor(nom, date, categorie) {
       this.nom = nom;
       this.date = date;
@@ -120,7 +126,5 @@ class Tache {
 let mesTaches = []
 
 function pushTache(tache) {
-  mesTaches.push(tache)
+  console.log(mesTaches)
 }
-
-// Il manque la 7)b et 7)c
