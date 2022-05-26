@@ -1,4 +1,5 @@
-function create_robot(){
+function createBot(){
+
     let bender = document.createElement('img'); 
     bender.src = "../img/Bender.png"; 
     bender.style.height = "100px"; 
@@ -8,62 +9,91 @@ function create_robot(){
     bender.style.transition = "all 2s"; 
     bender.id = "bender"; 
     document.body.append(bender);
+}
+/*
+function activate_bot(){
+    const tasks = document.querySelector(".datatable")
+    const tab = []
+    for (let i = 5; i < tasks.childNodes.length; i++){
+      console.log(tasks.childNodes)
+      tab.push(tasks.childNodes[i].childNodes[0].textContent)
     }
-
-function move_bot_right() {
-    
-    const bender = document.getElementById("bender")
-    bender.style.left = "100px";
-    
-    //document.getElementById("bender") = parseInt(document.getElementById("bender").style.right) + 100 + "px";
+    console.log("tab" ,tab)
+  
+    const execute = () =>{
+      if(tab.length > 0){
+        const action = get_bot_action(tab.shift())
+        action()
+        setTimeout(execute, 1000)
+      }
+    }
+    console.log("testtt")
+    execute()
 }
 
-function move_bot_left() {
-    document.getElementById("bender") = parseInt(document.getElementById("bender").style.left) - 100 + "px";
+function activate_bot(){
+    const tasks = document.querySelector(".datatable").querySelector("tbody")
+    const tab = []
+    console.log(tasks.childNodes.length)
+    for (let i = 0; tasks.childNodes.length > i; i++){
+        console.log(tasks.childNodes[i].textContent)
+        tab.push(tasks.childNodes[i].textContent)
+    }
+    console.log("tab" ,tab)
+
+    const execute = () =>{
+        if(tab.length > 0){
+        const action = get_bot_action(tab.shift())
+        action()
+        setTimeout(execute, 1000)
+        }
+    }
+    console.log("testtt")
+    execute()
+}
+*/
+function activate_bot(){
+    const tasks = document.querySelector('.datatable tbody')
+    const tab = []
+    console.log("ChildNodes",tasks.childElementCount)
+
+    for (let i = 1; i < tasks.childNodes.length; i++) {
+        tab.push(tasks.childNodes[i].childNodes[0].textContent);
+    }
+    console.log("tab" ,tab)
+    // for each command in tab, setTimeout and execute the command
+    const execute = () => {
+        if (tab.length > 0) {
+            const action = get_bot_action(tab.shift())
+            action()
+            setTimeout(execute,1000)
+        }
+    }
+    execute()
 }
 
-function move_bot_down() {
-    document.getElementById("bender") = parseInt(document.getElementById("bender").style.top) + 100 + "px";
-}
 
-function move_bot_up() {
-    document.getElementById("bender") = parseInt(document.getElementById("bender").style.top) - 100 + "px";
-}
-
-function activate_bot(query) {
-    move_bot_right()
-    move_bot_left()
-    move_bot_down()
-    move_bot_up()
-
-    console.log("BOT GO !")
-    
-}
-
-
-
-function get_bot_action(query) {
-    switch (query) {
-        case "BOT_CREATE" :
-            create_robot()
-            break
-        case "BOT_RIGHT" :
-            move_bot_right()
-            break
-        case "BOT_LEFT" :
-            move_bot_left()
-            break
-        case "BOT_UP " :
-            move_bot_up()
-            break
-        case "BOT_DOWN" :
-            move_bot_down()
-            break
-        case "BOT_RUN" :
-            activate_bot()
-            break;
-        default :
-            break
+function get_bot_action(query){
+    switch(query){
+        case "BOT_CREATE":
+            return () => createBot()
+        case "BOT_RIGHT":
+            return () => {
+                document.getElementById("bender").style.left = (parseInt(document.getElementById("bender").style.left.replace('px',''), 10) + 100) + "px";
+            };
+        case "LEFT":
+            return () => {
+                document.getElementById("bender").style.left = (parseInt(document.getElementById("bender").style.left.replace('px',''), 10) - 100) + "px";
+            };
+        case "DOWN":
+            return () => {
+                document.getElementById("bender").style.top = (parseInt(document.getElementById("bender").style.top.replace('px',''), 10) + 100) + "px";
+        }; 
+        case "UP":
+            return () => {
+                document.getElementById("bender").style.top = (parseInt(document.getElementById("bender").style.top.replace('px',''), 10) - 100) + "px";
+        }; 
+        default:
+            return () => {};
     }
 }
-

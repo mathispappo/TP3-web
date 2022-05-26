@@ -14,10 +14,6 @@ function ajouter(){
     taskTd.textContent = document.newTaskF.tache.value
     dateTd.textContent = document.newTaskF.date.value
     categorieTd.textContent = document.newTaskF.categorie.value
-    if (taskTd.textContent === "BOT_RUN"){
-      activate_bot()
-    }
-    get_bot_action(taskTd.textContent)
 
     
     //const selectEntree = document.getElementById("entreeId");
@@ -42,7 +38,9 @@ function ajouter(){
     const table = document.querySelector('.datatable tbody')
     /*  Ex2)3)vi) */
     table.appendChild(newItem)
-
+    activate_bot()
+    
+    //get_bot_action(taskTd.textContent)
 }
 
  //supprimer toutes les lignes du tableau
