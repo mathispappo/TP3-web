@@ -61,4 +61,12 @@
         </div>
         
     </body>
+    <!--
+        <script type="text/javascript" src="tasks.json"></script>
+    -->
+    <script>
+        var fromJSON = localStorage.getItem("tasks.json");
+        var obj = JSON.parse(fromJSON)
+        console.log(JSON.stringify("tasks.json"))
+    </script>
 </html>

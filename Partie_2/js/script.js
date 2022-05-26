@@ -43,7 +43,6 @@ function ajouter(){
       activate_bot()
     }
     
-    //get_bot_action(taskTd.textContent)
 }
 
  //supprimer toutes les lignes du tableau
