@@ -12,7 +12,7 @@ function activate_bot(){
         if (tab.length > 0) {
             const action = get_bot_action(tab.shift())
             action()
-            setTimeout(execute,1000)
+            setTimeout(execute,2000)
         }
     }
     execute()
