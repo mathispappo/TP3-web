@@ -76,27 +76,27 @@
         }
 
         function getPreviousPage() {
-            if (page > 0) {
-                page = page - 1;
-            }
+            page = page - 1;    
         }
 
         function getNextPage() {
-            if (page < 20) {
-                page = page + 1;
-            }
+            page = page + 1;
         }
 
         function showPreviousPage(){
-            removeAll()
-            getPreviousPage()
-            getTasks(page)
+            if (page > 0) {
+                removeAll()
+                getPreviousPage()
+                getTasks(page)
+            }
         }
 
         function showNextPage() {
-            removeAll()
-            getNextPage()
-            getTasks(page)
+            if (page < 19) {
+                removeAll()
+                getNextPage()
+                getTasks(page)
+            }
         }
         /*
         public void setAnnee(int annee) {
