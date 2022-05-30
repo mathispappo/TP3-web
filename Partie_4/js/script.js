@@ -54,7 +54,6 @@ function fetchJson() {
   console.log(json, typeof  json)
   
   const objectToJson = JSON.stringify(json)
-  console.log("testtttttt")
   console.log(objectToJson, typeof objectToJson)
 
   return json;
