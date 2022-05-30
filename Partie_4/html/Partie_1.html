@@ -53,8 +53,10 @@
                 </tbody>
             </table>
           </div>
-    
     </main>
+    
+    <button class="btn" onclick="showPreviousPage()">Page précédente</button>
+    <button class="btn"  onclick="showNextPage()">Page suivante</button>
 
     <div class="footer">   
         <a href = "https://temps-action.com/todo-list"> Besoin d'aide ! </a>  
@@ -62,6 +64,53 @@
     
   </body>
   <script>
+        function removeAll() {
+            const tbody = document.querySelector('.datatable tbody' )
+            while (tbody.firstChild) {
+                tbody.removeChild(tbody.firstChild)
+            }
+        }
+
+        function getAlbum() {
+            page = page;
+        }
+
+        function getPreviousPage() {
+            if (page > 0) {
+                page = page - 1;
+            }
+        }
+
+        function getNextPage() {
+            if (page < 20) {
+                page = page + 1;
+            }
+        }
+
+        function showPreviousPage(){
+            removeAll()
+            getPreviousPage()
+            getTasks(page)
+        }
+
+        function showNextPage() {
+            removeAll()
+            getNextPage()
+            getTasks(page)
+        }
+        /*
+        public void setAnnee(int annee) {
+        this.annee = annee;
+        }
+        public int getJour(){
+            return jour;
+        }
+        */
+
+        function getAlbum() {
+            return page;
+        }
+
         function createTask(item) {
             const tbody = document.querySelector("tbody")
 
@@ -118,6 +167,6 @@
             });
         }
         // Appel de getTasks au chargement de la page (On récupère la première page de résultat (indice 0))
-        getTasks(0);
+        getTasks(page);
   </script>
 </html>
