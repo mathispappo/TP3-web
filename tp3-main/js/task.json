@@ -1,0 +1,17 @@
+[
+  {
+    "task" :  "RDV sheldon",
+    "date" : "02/06/22",
+    "category" : "Tâche pro"
+  },
+  {
+    "task" :  "Rdv bernadette",
+    "date" : "03/06/22",
+    "category" : "tâche partage"
+  },
+  {
+    "task" :  "Rdv Raphael",
+    "date" : "03/06/22",
+    "category" : "tâche new"
+  }
+]

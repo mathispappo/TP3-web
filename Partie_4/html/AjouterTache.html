@@ -6,7 +6,7 @@
         <link rel= "stylesheet" href= "../styles/Styles.css"> 
         <link rel= "stylesheet" href= "../styles/menu_style.css">
         <link rel= "json" href= "../js/tasks.json">
-     
+        <script type="text/javascript" src="../js/script.js"></script>
     </head>
        
        <!-- Le corps-->
@@ -61,31 +61,11 @@
         </div>
         
     </body>
-    <!--
-        
-
-        var fromJSON = localStorage.getItem("tasks.json");
-        console.log(fromJSON)
-        var obj = JSON.parse(fromJSON)
-        var test = JSON.parse("tasks.json")
-        console.log(fromJSON)
-        console.log(obj)
-        console.log(JSON.stringify("tasks.json"))
-        
-
-        
-        let fichier = fs.readFileSync('tasks.json')
-        let personne = JSON.parse(fichier)
-        console.log(personne)
-        
-        const testeee = require("");
-        fetch('./tasks.json')
-    -->
+    
     <script src="../js/tasks.json"></script>
     <script>
-        fetch("../js/tasks.json")
-        .then(res=> res.json())
-        .then(data=> console.log(JSON.stringify(data)))
-
+        const json = fetch('../js/tasks.json').then(response => j = response.json())
+        console.log(json)
+        console.log(typeof json)
     </script>
 </html>

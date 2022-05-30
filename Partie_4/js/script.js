@@ -49,23 +49,34 @@ function supprimer() {
     
 }
 
+function fetchJson() {
+  const json = fetch('../js/tasks.json').then(response => j = response.json())
+  console.log(json, typeof  json)
+  
+  const objectToJson = JSON.stringify(json)
+  console.log("testtttttt")
+  console.log(objectToJson, typeof objectToJson)
+
+  return json;
+}
+
 function loadTasks(tasks) {
   tasks.forEach(task => {
-      const tr = document.createElement("tr")
-      const tacheEl = document.createElement("td")
-      const dateEl = document.createElement("td")
-      const choixEl = document.createElement("td")
+    const newItem = document.createElement('tr')
+    const taskTd = document.createElement('td')
+    const dateTd = document.createElement('td')
+    const categorieTd = document.createElement('td')
 
-      tr.append(tacheEl, dateEl, choixEl)
-      tacheEl.innerText = task.task
-      dateEl.innerText = task.date
-      choixEl.innerText = task.category
-      tbody.append(tr)
+    taskTd.innerText = task.task
+    dateTd.innerText = task.date
+    categorieTd.innerText = task.categorie
+
+    newItem.append(taskTd, dateTd, categorieTd)
+    
+    const table = document.querySelector('.datatable tbody')
+    table.append(newItem)
   })
 }
 
-async function fetchJson() {
-  const json =  await fetch('../js/tasks.json').then(response => j = response.json())
-  console.log(json, typeof  json)
-  return json;
-}
+
+fetchJson().then(r => loadTasks(r))
